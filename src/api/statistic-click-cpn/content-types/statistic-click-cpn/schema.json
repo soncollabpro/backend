@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistic_click_cpns",
+  "info": {
+    "singularName": "statistic-click-cpn",
+    "pluralName": "statistic-click-cpns",
+    "displayName": "Statistic Click CPN",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campagnepushnotification": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campagne-push-notification.campagne-push-notification",
+      "inversedBy": "statisticclickcpns"
+    },
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "clickTime": {
+      "type": "datetime"
+    }
+  }
+}

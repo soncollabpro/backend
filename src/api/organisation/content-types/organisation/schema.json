@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organisations",
+  "info": {
+    "singularName": "organisation",
+    "pluralName": "organisations",
+    "displayName": "Organisation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "organisation"
+    }
+  }
+}

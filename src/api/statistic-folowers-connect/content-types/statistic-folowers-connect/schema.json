@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistic_folowers_connects",
+  "info": {
+    "singularName": "statistic-folowers-connect",
+    "pluralName": "statistic-folowers-connects",
+    "displayName": "Statistic Folowers Connect",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "currentFollowers": {
+      "type": "integer"
+    },
+    "myconnect": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::my-connect.my-connect",
+      "inversedBy": "statisticfolowersconnects"
+    },
+    "lastUpdate": {
+      "type": "datetime"
+    }
+  }
+}

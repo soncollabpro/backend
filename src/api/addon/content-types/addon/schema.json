@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addons",
+  "info": {
+    "singularName": "addon",
+    "pluralName": "addons",
+    "displayName": "Addon",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "libelle": {
+      "type": "enumeration",
+      "enum": [
+        "Biographie",
+        "Music Link",
+        "Pre-save",
+        "Exclusivity link"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "unique",
+        "multiple"
+      ]
+    },
+    "learnLink": {
+      "type": "string"
+    },
+    "subscriptions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subscription.subscription",
+      "mappedBy": "addons"
+    },
+    "plans": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::plan.plan",
+      "inversedBy": "addons"
+    },
+    "hasActivated": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscriptions",
+  "info": {
+    "singularName": "subscription",
+    "pluralName": "subscriptions",
+    "displayName": "Subscription",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "subscription"
+    },
+    "trialcheck": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::trialcheck.trialcheck",
+      "mappedBy": "subscription"
+    },
+    "addons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::addon.addon",
+      "inversedBy": "subscriptions"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "init",
+        "active",
+        "free",
+        "expired",
+        "canceled",
+        "trialing"
+      ],
+      "default": "init"
+    },
+    "startTrial": {
+      "type": "datetime"
+    },
+    "endTrial": {
+      "type": "datetime"
+    },
+    "hasTrial": {
+      "type": "boolean",
+      "default": false
+    },
+    "timeplan": {
+      "type": "enumeration",
+      "enum": [
+        "month",
+        "year"
+      ]
+    },
+    "plan": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::plan.plan",
+      "inversedBy": "subscriptions"
+    },
+    "subId": {
+      "type": "string"
+    },
+    "alreadyTried": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

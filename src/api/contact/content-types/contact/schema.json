@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "prenom": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "anniversaire": {
+      "type": "date"
+    },
+    "sexe": {
+      "type": "enumeration",
+      "enum": [
+        "Homme",
+        "Femme"
+      ]
+    },
+    "myfanbase": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::my-fanbase.my-fanbase",
+      "inversedBy": "contacts"
+    },
+    "hasDelete": {
+      "type": "boolean",
+      "default": false
+    },
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "integer",
+      "max": 130,
+      "min": 0
+    }
+  }
+}

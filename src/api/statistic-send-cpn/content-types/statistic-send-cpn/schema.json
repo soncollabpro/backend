@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistic_send_cpns",
+  "info": {
+    "singularName": "statistic-send-cpn",
+    "pluralName": "statistic-send-cpns",
+    "displayName": "Statistic Send CPN",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "campagnepushnotification": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campagne-push-notification.campagne-push-notification",
+      "inversedBy": "statisticsendcpns"
+    },
+    "sendDateTime": {
+      "type": "datetime"
+    },
+    "count": {
+      "type": "integer"
+    }
+  }
+}

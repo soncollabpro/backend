@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campagne_services",
+  "info": {
+    "singularName": "campagne-service",
+    "pluralName": "campagne-services",
+    "displayName": "Campagne Service",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "libelle": {
+      "type": "enumeration",
+      "enum": [
+        "push notification"
+      ]
+    },
+    "hasActivated": {
+      "type": "boolean",
+      "default": true
+    },
+    "campagnepushnotifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campagne-push-notification.campagne-push-notification",
+      "private": true,
+      "mappedBy": "campagneservice"
+    }
+  }
+}

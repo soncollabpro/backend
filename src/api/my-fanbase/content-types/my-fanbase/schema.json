@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "my_fanbases",
+  "info": {
+    "singularName": "my-fanbase",
+    "pluralName": "my-fanbases",
+    "displayName": "My fanbase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "myfanbase"
+    },
+    "fcmtks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fcmtk.fcmtk",
+      "mappedBy": "myfanbase"
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contact.contact",
+      "mappedBy": "myfanbase"
+    }
+  }
+}

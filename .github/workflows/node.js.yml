@@ -1,0 +1,70 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: backend
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: soncollab-vps
+
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Docker build
+      run: docker compose build
+    - name: Docker restart
+      env:
+        DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
+        DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+        DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+        DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+        JWT_SECRET: ${{ secrets.JWT_SECRET }}
+        ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
+        APP_KEYS: ${{ secrets.APP_KEYS }}
+        NODE_ENV: ${{ secrets.NODE_ENV }}
+        TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
+        API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
+        URL: ${{ secrets.URL }}
+
+        MAILJET_PUBLIC_KEY: ${{ secrets.MAILJET_PUBLIC_KEY }}
+        MAILJET_SECRET_KEY: ${{ secrets.MAILJET_SECRET_KEY }}
+
+        MAP_API_KEY: ${{ secrets.MAP_API_KEY }}
+        # Spotify API
+        SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+        SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        SPOTIFY_REDIRECT_URI: ${{ secrets.SPOTIFY_REDIRECT_URI }}
+        # Stripe
+        STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+        # Stripe webhook
+        STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
+        STRIPE_REFRESH_URL_CURATOR_ACCOUNT_LINK: ${{ secrets.STRIPE_REFRESH_URL_CURATOR_ACCOUNT_LINK }}
+        STRIPE_RETURN_URL_CURATOR_ACCOUNT_LINK: ${{ secrets.STRIPE_RETURN_URL_CURATOR_ACCOUNT_LINK }}
+
+        FRONTEND_URL: ${{ secrets.FRONTEND_URL }}
+        BACKEND_URL: ${{ secrets.BACKEND_URL }}
+        BIOLINK: ${{ secrets.BIOLINK }}
+
+      run: docker compose up -d || docker compose restart
+    - name: Start DB
+      env:
+        MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+        DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+        DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+        DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      run: docker compose -f docker-compose-mysql.yaml up -d
+

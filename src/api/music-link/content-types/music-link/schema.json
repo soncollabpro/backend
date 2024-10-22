@@ -1,0 +1,177 @@
+{
+  "kind": "collectionType",
+  "collectionName": "music_links",
+  "info": {
+    "singularName": "music-link",
+    "pluralName": "music-links",
+    "displayName": "Music Link",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "hasSecondLine": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondLine": {
+      "type": "string"
+    },
+    "btnMl": {
+      "type": "json"
+    },
+    "socialsMl": {
+      "type": "json"
+    },
+    "hasLogoPowered": {
+      "type": "boolean",
+      "default": true
+    },
+    "hasSocialPlatform": {
+      "type": "boolean",
+      "default": false
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "classic",
+        "full-image"
+      ]
+    },
+    "linkDisplay": {
+      "type": "enumeration",
+      "enum": [
+        "card",
+        "stacked"
+      ]
+    },
+    "titlePrimaryFont": {
+      "type": "enumeration",
+      "enum": [
+        "Montserrat",
+        "Inter",
+        "Poppins",
+        "PT Sans",
+        "Soncollab"
+      ]
+    },
+    "pageColor": {
+      "type": "string"
+    },
+    "pageColorCodeText": {
+      "type": "string"
+    },
+    "buttonColor": {
+      "type": "string"
+    },
+    "buttonColorCodeText": {
+      "type": "string"
+    },
+    "backgroundType": {
+      "type": "enumeration",
+      "enum": [
+        "cover-image",
+        "cover-color"
+      ]
+    },
+    "backgroundTypeColor": {
+      "type": "string"
+    },
+    "backgroundTypeColorCodeText": {
+      "type": "string"
+    },
+    "tiktokPixel": {
+      "type": "string"
+    },
+    "googlePixel": {
+      "type": "string"
+    },
+    "smartLink": {
+      "type": "string"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "musiclinks"
+    },
+    "name": {
+      "type": "string"
+    },
+    "idLinkSpotify": {
+      "type": "string"
+    },
+    "typeLinkspotify": {
+      "type": "enumeration",
+      "enum": [
+        "single",
+        "album"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "orderBtnMl": {
+      "type": "json"
+    },
+    "orderSocialsMl": {
+      "type": "json"
+    },
+    "musicData": {
+      "type": "json"
+    },
+    "uniqueKey": {
+      "type": "string"
+    },
+    "statisticvisitors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::statistic-visitor.statistic-visitor",
+      "mappedBy": "musiclink"
+    },
+    "statisticclicks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::statistic-click.statistic-click",
+      "mappedBy": "musiclink"
+    },
+    "xPixel": {
+      "type": "string"
+    },
+    "hasBoostNotif": {
+      "type": "boolean",
+      "default": false
+    },
+    "fcmtks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fcmtk.fcmtk",
+      "mappedBy": "musiclink"
+    },
+    "hasDelete": {
+      "type": "boolean",
+      "default": false
+    },
+    "campagnepushnotifications": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::campagne-push-notification.campagne-push-notification",
+      "inversedBy": "musiclinks"
+    },
+    "typelink": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::type-link.type-link",
+      "inversedBy": "musiclink"
+    }
+  }
+}

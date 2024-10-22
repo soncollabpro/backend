@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistic_visitors",
+  "info": {
+    "singularName": "statistic-visitor",
+    "pluralName": "statistic-visitors",
+    "displayName": "Statistic Visitor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "days": {
+      "type": "datetime"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "musiclink": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::music-link.music-link",
+      "inversedBy": "statisticvisitors"
+    },
+    "screenResolution": {
+      "type": "string"
+    },
+    "countryCode": {
+      "type": "string"
+    },
+    "regionName": {
+      "type": "string"
+    },
+    "continent": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer",
+      "default": 1
+    }
+  }
+}

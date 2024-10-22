@@ -1,0 +1,148 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campagne_push_notifications",
+  "info": {
+    "singularName": "campagne-push-notification",
+    "pluralName": "campagne-push-notifications",
+    "displayName": "Campagne Push Notification",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "typePush": {
+      "type": "enumeration",
+      "enum": [
+        "forBoostLink",
+        "forCustomType"
+      ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "buttonChoice": {
+      "type": "enumeration",
+      "enum": [
+        "ecoutez maintenant",
+        "decouvrez plus",
+        "voir la video",
+        "voir la chanson",
+        "voir le podcast"
+      ]
+    },
+    "customTitle": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "customDescription": {
+      "type": "text",
+      "maxLength": 160
+    },
+    "customImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "customLink": {
+      "type": "string"
+    },
+    "customButtons": {
+      "type": "json"
+    },
+    "sendDateTime": {
+      "type": "datetime"
+    },
+    "campaignDuration": {
+      "type": "enumeration",
+      "enum": [
+        "unjour",
+        "troisjours",
+        "unesemaine",
+        "deuxsemaines",
+        "unmois"
+      ]
+    },
+    "sendFrequency": {
+      "type": "enumeration",
+      "enum": [
+        "unefoisparjour",
+        "troisfoisparsemaine",
+        "unefoisparsemaine",
+        "unefoisparmois"
+      ]
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "campagneservice": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campagne-service.campagne-service",
+      "inversedBy": "campagnepushnotifications"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "campagnepushnotifications"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "pending",
+        "finished",
+        "canceled",
+        "suspended",
+        "paused"
+      ]
+    },
+    "musiclinks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::music-link.music-link",
+      "mappedBy": "campagnepushnotifications"
+    },
+    "typeLink": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "hasDelete": {
+      "type": "boolean",
+      "default": false
+    },
+    "typecampaign": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::type-campaign.type-campaign",
+      "mappedBy": "campagnepushnotification"
+    },
+    "statisticsendcpns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::statistic-send-cpn.statistic-send-cpn",
+      "mappedBy": "campagnepushnotification"
+    },
+    "statisticclickcpns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::statistic-click-cpn.statistic-click-cpn",
+      "mappedBy": "campagnepushnotification"
+    },
+    "lastSentDate": {
+      "type": "datetime"
+    }
+  }
+}

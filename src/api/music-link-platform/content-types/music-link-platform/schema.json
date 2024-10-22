@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "music_link_platforms",
+  "info": {
+    "singularName": "music-link-platform",
+    "pluralName": "music-link-platforms",
+    "displayName": "Music Link Platform",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "imageLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "formatLinkSingle": {
+      "type": "string"
+    },
+    "libelle": {
+      "type": "enumeration",
+      "enum": [
+        "spotify",
+        "youtube music",
+        "apple music",
+        "deezer",
+        "amazon music",
+        "tidal",
+        "audiomack",
+        "anghami",
+        "soundcloud",
+        "boomplay",
+        "bandcamp",
+        "fnac",
+        "autre"
+      ]
+    },
+    "hasActivated": {
+      "type": "boolean",
+      "default": false
+    },
+    "formatLinkAlbum": {
+      "type": "string"
+    },
+    "hasDefault": {
+      "type": "boolean",
+      "default": false
+    },
+    "formatLinkAnother": {
+      "type": "string"
+    },
+    "imageBtnLight": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageBtnDark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "statisticclicks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::statistic-click.statistic-click",
+      "mappedBy": "musiclinkplatform"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistic_clicks",
+  "info": {
+    "singularName": "statistic-click",
+    "pluralName": "statistic-clicks",
+    "displayName": "Statistic Click",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "from": {
+      "type": "string"
+    },
+    "musiclinkplatform": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::music-link-platform.music-link-platform",
+      "inversedBy": "statisticclicks"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "days": {
+      "type": "datetime"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "musiclink": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::music-link.music-link",
+      "inversedBy": "statisticclicks"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "social",
+        "platform"
+      ]
+    },
+    "continent": {
+      "type": "string"
+    },
+    "countryCode": {
+      "type": "string"
+    },
+    "regionName": {
+      "type": "string"
+    },
+    "uniqueKey": {
+      "type": "string"
+    },
+    "musiclinksocial": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::music-link-social.music-link-social",
+      "inversedBy": "statisticclicks"
+    }
+  }
+}

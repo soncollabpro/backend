@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "music_link_socials",
+  "info": {
+    "singularName": "music-link-social",
+    "pluralName": "music-link-socials",
+    "displayName": "Music Link Social",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "libelle": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "x",
+        "youtube"
+      ]
+    },
+    "hasActivated": {
+      "type": "boolean",
+      "default": false
+    },
+    "imgLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "hasDefault": {
+      "type": "boolean",
+      "default": false
+    },
+    "imageSoLight": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageSoDark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "formatLink": {
+      "type": "string"
+    },
+    "statisticclicks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::statistic-click.statistic-click",
+      "mappedBy": "musiclinksocial"
+    }
+  }
+}

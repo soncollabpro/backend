@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "type_links",
+  "info": {
+    "singularName": "type-link",
+    "pluralName": "type-links",
+    "displayName": "Type link"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "key": {
+      "type": "enumeration",
+      "enum": [
+        "musiclink"
+      ]
+    },
+    "musiclink": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::music-link.music-link",
+      "mappedBy": "typelink"
+    }
+  }
+}

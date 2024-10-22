@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "platforms_connects",
+  "info": {
+    "singularName": "platforms-connect",
+    "pluralName": "platforms-connects",
+    "displayName": "Platforms connect",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "libelle": {
+      "type": "enumeration",
+      "enum": [
+        "spotify",
+        "youtube"
+      ]
+    },
+    "hasActivated": {
+      "type": "boolean",
+      "default": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "myconnects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::my-connect.my-connect",
+      "mappedBy": "platformsconnect"
+    }
+  }
+}

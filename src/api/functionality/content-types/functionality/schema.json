@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "functionalities",
+  "info": {
+    "singularName": "functionality",
+    "pluralName": "functionalities",
+    "displayName": "Functionality",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "libelle": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "plans": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::plan.plan",
+      "inversedBy": "functionalities"
+    }
+  }
+}

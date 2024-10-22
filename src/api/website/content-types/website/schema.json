@@ -1,0 +1,100 @@
+{
+  "kind": "singleType",
+  "collectionName": "websites",
+  "info": {
+    "singularName": "website",
+    "pluralName": "websites",
+    "displayName": "Website",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "heroTitle": {
+      "type": "text"
+    },
+    "heroDescription": {
+      "type": "text"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "soncollabLight": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "soncollabDark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "associateImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "creatorAccountLimit": {
+      "type": "integer"
+    },
+    "subscribeImg1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "trialDay": {
+      "type": "integer"
+    },
+    "subscribeLibelle": {
+      "type": "text"
+    },
+    "subscribeDescription": {
+      "type": "text"
+    },
+    "subscribeLibelleNoTrial": {
+      "type": "text"
+    },
+    "subscribeDescriptionNoTrial": {
+      "type": "text"
+    },
+    "createMusicLinkLimit": {
+      "type": "integer"
+    }
+  }
+}

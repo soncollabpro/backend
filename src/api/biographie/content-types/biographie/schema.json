@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "biographies",
+  "info": {
+    "singularName": "biographie",
+    "pluralName": "biographies",
+    "displayName": "Biographie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "biographie"
+    }
+  }
+}

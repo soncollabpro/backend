@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "my_connects",
+  "info": {
+    "singularName": "my-connect",
+    "pluralName": "my-connects",
+    "displayName": "My connect",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "platforms": {
+      "type": "enumeration",
+      "enum": [
+        "spotify",
+        "youtube"
+      ]
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "myconnects"
+    },
+    "statisticfolowersconnects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::statistic-folowers-connect.statistic-folowers-connect",
+      "mappedBy": "myconnect"
+    },
+    "url": {
+      "type": "string"
+    },
+    "platformsconnect": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::platforms-connect.platforms-connect",
+      "inversedBy": "myconnects"
+    },
+    "default": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

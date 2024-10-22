@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plans",
+  "info": {
+    "singularName": "plan",
+    "pluralName": "plans",
+    "displayName": "Plan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "subscriptions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subscription.subscription",
+      "mappedBy": "plan"
+    },
+    "libelle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "priceMonth": {
+      "type": "decimal"
+    },
+    "priceYear": {
+      "type": "decimal"
+    },
+    "strIdMonth": {
+      "type": "string"
+    },
+    "strIdYear": {
+      "type": "string"
+    },
+    "trialchecks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::trialcheck.trialcheck",
+      "inversedBy": "plans"
+    },
+    "productId": {
+      "type": "string"
+    },
+    "level": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "free",
+        "pro"
+      ]
+    },
+    "functionalities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::functionality.functionality",
+      "mappedBy": "plans"
+    },
+    "addons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::addon.addon",
+      "mappedBy": "plans"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trialchecks",
+  "info": {
+    "singularName": "trialcheck",
+    "pluralName": "trialchecks",
+    "displayName": "Trialcheck",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "subscription": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subscription.subscription",
+      "inversedBy": "trialcheck"
+    },
+    "plans": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::plan.plan",
+      "mappedBy": "trialchecks"
+    }
+  }
+}

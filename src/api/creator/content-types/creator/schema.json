@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "creators",
+  "info": {
+    "singularName": "creator",
+    "pluralName": "creators",
+    "displayName": "Creator",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "creators"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "spotify",
+        "youtube"
+      ]
+    },
+    "linkedAccount": {
+      "type": "string"
+    },
+    "hasNowActivated": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "biographie": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::biographie.biographie",
+      "mappedBy": "creator"
+    },
+    "currency": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::currency.currency",
+      "inversedBy": "creators"
+    },
+    "creatorName": {
+      "type": "string"
+    },
+    "musiclinks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::music-link.music-link",
+      "mappedBy": "creator"
+    },
+    "myconnects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::my-connect.my-connect",
+      "mappedBy": "creator"
+    },
+    "myfanbase": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::my-fanbase.my-fanbase",
+      "mappedBy": "creator"
+    },
+    "campagnepushnotifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campagne-push-notification.campagne-push-notification",
+      "mappedBy": "creator"
+    }
+  }
+}

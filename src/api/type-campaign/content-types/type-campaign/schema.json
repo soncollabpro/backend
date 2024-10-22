@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "type_campaigns",
+  "info": {
+    "singularName": "type-campaign",
+    "pluralName": "type-campaigns",
+    "displayName": "Type Campaign"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-nanoid.nanoid"
+    },
+    "key": {
+      "type": "enumeration",
+      "enum": [
+        "push-notification"
+      ]
+    },
+    "campagnepushnotification": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campagne-push-notification.campagne-push-notification",
+      "inversedBy": "typecampaign"
+    }
+  }
+}
